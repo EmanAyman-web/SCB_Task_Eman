@@ -6,5 +6,4 @@ import com.example.Champion.model.Champion;
 
 @Repository
 public interface ChampionRepository extends MongoRepository<Champion, String> {
-    // You can add custom query methods here if needed
 }

@@ -4,12 +4,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDate;
+
 @Document(collection = "matches")
 public class Match {
 
     @Id
     private String id;
-
     private String participantOneId;
     private String participantTwoId;
     private String winnerId;
@@ -17,19 +17,15 @@ public class Match {
     private String result;
     private boolean closed;
 
-    // Change to LocalDate
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate date; // Change to LocalDate
+    private LocalDate date; 
 
-    // These fields will be populated dynamically
     private Participant participant1;
     private Participant participant2;
 
-    // Default constructor
     public Match() {
     }
 
-    // Getters and Setters
     public String getId() {
         return id;
     }

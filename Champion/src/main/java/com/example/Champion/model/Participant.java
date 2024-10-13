@@ -8,11 +8,9 @@ public class Participant {
 
     @Id
     private String id;
-
     private String name;
     private String leagueId;
 
-    // Getters and Setters
     public String getId() {
         return id;
     }

@@ -1,8 +1,7 @@
 package com.example.Champion.model;
+
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.Id;
 import java.time.LocalDate;
 
@@ -11,14 +10,12 @@ public class Champion {
 
     @Id
     private String id;
-
     private String participantId;
     private String name;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate winDate;
 
-    // Getters and Setters
     public String getId() {
         return id;
     }

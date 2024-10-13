@@ -1,6 +1,6 @@
-package com.example.Champion.model; // Ensure this package is correct
+package com.example.Champion.model; 
 
-import java.time.LocalDate; // Import LocalDate instead of java.sql.Date
+import java.time.LocalDate; 
 
 public class MatchResponse {
     private String id;
@@ -10,7 +10,7 @@ public class MatchResponse {
     private String leagueId;
     private String result;
     private boolean closed;
-    private LocalDate date; // Change to LocalDate
+    private LocalDate date; 
 
     public MatchResponse(Match match) {
         this.id = match.getId();
@@ -20,10 +20,9 @@ public class MatchResponse {
         this.leagueId = match.getLeagueId();
         this.result = match.getResult();
         this.closed = match.isClosed();
-        this.date = match.getDate(); // Now matches the type LocalDate
+        this.date = match.getDate(); 
     }
 
-    // Getters and setters
     public String getId() {
         return id;
     }
@@ -52,7 +51,7 @@ public class MatchResponse {
         return closed;
     }
 
-    public LocalDate getDate() {  // Change the return type to LocalDate
+    public LocalDate getDate() {  
         return date;
     }
 }

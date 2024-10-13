@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -15,30 +14,32 @@ public class ParticipantController {
     @Autowired
     private ParticipantService participantService;
 
+    // 1- Create Participants
     @PostMapping
     public ResponseEntity<?> createParticipant(@RequestBody Participant participant) {
         try {
             Participant createdParticipant = participantService.createParticipant(participant);
             return ResponseEntity.status(HttpStatus.CREATED).body(createdParticipant);
         } catch (IllegalArgumentException e) {
-            // Return a structured error response
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error: " + e.getMessage());
         }
     }
 
+    // 2- Get all The participants from db
     @GetMapping
     public ResponseEntity<List<Participant>> getAllParticipants() {
         return ResponseEntity.ok(participantService.getAllParticipants());
     }
 
+    // 3- Get info about participants endpoint
     @GetMapping("/info")
     public ResponseEntity<String> participantLimitInfo() {
         return ResponseEntity.ok("You can add up to 12 participants.");
     }
 
+    // 4- group participants into (n) groups in a randomize form
     @PostMapping("/group")
     public ResponseEntity<?> randomizeParticipants(@RequestParam int numberOfGroups) {
-        // Implement this logic based on your needs
         return ResponseEntity.ok(participantService.randomizeParticipants(numberOfGroups));
     }
 }
